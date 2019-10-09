@@ -21,7 +21,7 @@
                 </b-form-input>
             </b-form-group>
         </b-form>
-        <b-button variant="primary">Login</b-button>
+        <b-button variant="primary" v-on:click="emitirEvento">Login</b-button>
     </b-card>
 </template>
 
@@ -44,7 +44,9 @@
             BButton
         },
         methods: {
-
+            emitirEvento(){
+                this.$emit('user',this.user);
+            }
         }
     }
 </script>

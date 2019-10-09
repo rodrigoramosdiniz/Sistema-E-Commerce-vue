@@ -1,11 +1,11 @@
 import axios from 'axios'
-import app from '../main'
+//import app from '../main'
 
 const http = axios.create({
-    baseURL: " https://ecommerce-cpw.herokuapp.com/rest"
+    baseURL: "https://ecommerce-cpw.herokuapp.com/rest"
 });
 
-http.interceptors.request.use(config => {
+/*http.interceptors.request.use(config => {
     app.$Progress.start(); // for every request start the progress
     return config;
 });
@@ -16,6 +16,6 @@ http.interceptors.response.use(response => {
 }, response => {
     app.$Progress.fail(); // finish when a response is received
     return response;
-});
+});*/
 
 export default http;
