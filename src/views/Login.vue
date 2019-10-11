@@ -22,7 +22,9 @@
                         this.$router.push("/dashboard");
                         console.log(authenticatedUser);
                     })
-                    .catch()
+                    .catch((response) => {
+                        console.log(response);
+                    })
             }
         }
     }

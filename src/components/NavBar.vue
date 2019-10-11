@@ -24,7 +24,7 @@
                             <em>User</em>
                         </template>
                         <b-dropdown-item href="#">Profile</b-dropdown-item>
-                        <b-dropdown-item >Logout</b-dropdown-item>
+                        <b-dropdown-item v-on:click="logout">Logout</b-dropdown-item>
                     </b-nav-item-dropdown>
                 </b-navbar-nav>
             </b-collapse>
@@ -61,7 +61,10 @@
             BButton
         },
         methods: {
-
+            logout: function(){
+                sessionStorage.removeItem('user');
+                this.$router.push('/login')
+            }
         }
     }
 </script>

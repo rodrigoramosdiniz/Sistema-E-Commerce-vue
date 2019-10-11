@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <vue-progress-bar></vue-progress-bar>
         <nav-bar></nav-bar>
         <b-container fluid>
             <router-view/>
