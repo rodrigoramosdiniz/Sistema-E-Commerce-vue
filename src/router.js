@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import store from './store'
 
 Vue.use(Router)
 
@@ -52,13 +53,16 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-    const user = sessionStorage.getItem('user');
+    const status = store.getters.status; //sessionStorage.getItem("authUser")
     const authRequired = to.meta.authRequired;
 
-    if (authRequired && !user) {
-        return next('/login')
+    if (!authRequired) {
+        return next();
     }
-    next();
+    if (status == 'AUTHENTICATED') {
+        return next();
+    }
+    next("/login");
 })
 
 export default router;

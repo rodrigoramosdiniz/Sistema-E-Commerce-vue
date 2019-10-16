@@ -20,6 +20,13 @@ Vue.use(VueProgressBar, options);
 const app = new Vue({
   router,
   store,
+  beforeCreate(){
+      const authUser = JSON.parse(sessionStorage.getItem('authUser'));
+      if(authUser){
+          this.$store.commit('AUTHENTICATED',authUser);
+          this.$router.push("/dashboard")
+      }
+  },
   render: h => h(App)
 }).$mount('#app')
 

@@ -6,7 +6,6 @@
 
 <script>
     import LoginForm from '../components/LoginForm'
-    import userService from '../services/user'
 
     export default {
         name: "Login",
@@ -15,14 +14,12 @@
         },
         methods: {
             login(user) {
-                userService.login(user.email, user.senha)
-                    .then((response) => {
-                        const authenticatedUser = response.data;
-                        sessionStorage.setItem('user',JSON.stringify(authenticatedUser));
+                this.$store.dispatch('login',user)
+                    .then((response)=>{
+                        console.log(response);
                         this.$router.push("/dashboard");
-                        console.log(authenticatedUser);
                     })
-                    .catch((response) => {
+                    .catch((response)=>{
                         console.log(response);
                     })
             }
