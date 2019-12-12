@@ -9,7 +9,19 @@
                 <b-navbar-nav v-show="showFunctions">
                     <b-nav-item to="/dashboard">Dashboard</b-nav-item>
                     <b-nav-item to="/about">About</b-nav-item>
+
+                    <b-nav-item-dropdown text="Cadastro">
+                        <b-dropdown-item to="/categoria">Categoria</b-dropdown-item>
+                        <b-dropdown-item to="/produto">Produtos</b-dropdown-item>
+                    </b-nav-item-dropdown>
+
+
                 </b-navbar-nav>
+
+
+
+
+
 
                 <!-- Right aligned nav items -->
                 <b-navbar-nav class="ml-auto">
@@ -17,6 +29,7 @@
                         <b-button variant="success" to="/login">Login</b-button>
                         <b-button variant="info" to="/signup">Signup</b-button>
                     </b-nav-form>
+
 
                     <b-nav-item-dropdown right v-show="showFunctions">
                         <!-- Using 'button-content' slot -->

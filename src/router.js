@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import store from './store'
 
+
 Vue.use(Router)
 
 const router = new Router({
@@ -33,6 +34,26 @@ const router = new Router({
                 authRequired: true
             }
         },
+
+        {
+            path: '/produto',
+            name: 'produtoCategoria',
+            component: () => import(/* webpackChunkName: "about" */ './views/ProdutoCategoria.vue'),
+            meta: {
+                authRequired: true
+            }
+        },
+
+        {
+            path: '/produtos/:idCategory/:page',
+            name: 'produtos',
+            props: true,
+            component: () => import(/* webpackChunkName: "about" */ './views/Produto.vue'),
+            meta: {
+                authRequired: true
+            }
+        },
+
         {
             path: '/login',
             name: 'login',
@@ -41,6 +62,34 @@ const router = new Router({
                 authRequired: false
             }
         },
+
+        {
+            path: '/categoria',
+            name: 'categoria',
+            component: () => import(/* webpackChunkName: "about" */ './views/Categoria.vue'),
+            meta: {
+                authRequired: true
+            }
+        },
+
+        {
+            path: '/categoriaForm',
+            name: 'categoriaForm',
+            component: () => import(/* webpackChunkName: "about" */ './views/CategoriaForm.vue'),
+            meta: {
+                authRequired: true
+            }
+        },
+
+        {
+            path: '/produtoForm',
+            name: 'CriarProduto',
+            component: () => import(/* webpackChunkName: "about" */ './views/CriarProduto.vue'),
+            meta: {
+                authRequired: true
+            }
+        },
+
         {
             path: '/signup',
             name: 'signup',
